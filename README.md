@@ -4,6 +4,9 @@ A Vue 3 storefront and Hono BFF in one TDK `store` stack. TDK owns the landscape
 
 ## Run the complete storefront
 
+
+> **Repository-pinned CLI (optional):** Run `bun install` from the repository root to install the version pinned in `package.json`. Use `bun run tdk:project` to initialize project config, `bun run tdk:dry-run` to preview startup, or `bun run tdk:up -- <stack>` to start a stack. The global npm and standalone binary installation paths remain available.
+
 ### 1. Choose Bun or TDK
 
 Both options use the same Thor store and root `.env`. Choose how to run the local storefront:

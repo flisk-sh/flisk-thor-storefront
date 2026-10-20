@@ -12,6 +12,12 @@
     "test": "bun test scripts services/store/thor-bff/tests && bun run --cwd services/store/storefront-web test",
     "check": "bun run --cwd services/store/thor-bff check && bun run --cwd services/store/storefront-web check",
     "build:local": "bun run --cwd services/store/storefront-web build:local",
-    "dev:local": "bun scripts/dev-local.ts"
+    "dev:local": "bun scripts/dev-local.ts",
+    "tdk:project": "tdk project --yes",
+    "tdk:dry-run": "tdk up --dry-run",
+    "tdk:up": "tdk up"
+  },
+  "devDependencies": {
+    "@tdk-landscape/tdk-cli-core": "1.3.186"
   }
 }

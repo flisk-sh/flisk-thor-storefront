@@ -55,7 +55,7 @@ tdk resource storefront-web --type frontend --framework vue --stack store
 
 - Public schemas may differ from an agency's tenant schema; document tenant-only fields as out of scope for v1.
 - An empty URL could otherwise look like an empty catalog; named startup failure must occur before the storefront reports ready.
-- Older CLI releases ignore the Vue framework field; document the 1.3.75+ prerequisite and link the `tdk-cli-core#149` Vue gate.
+- Older CLI releases ignore the Vue framework field; document the 1.3.75+ prerequisite and link the `flisk#149` Vue gate.
 - Hosted checkout leaves the TDK landscape by design; this example demonstrates the handoff, not a second checkout.
 - Operators may bypass the documented wrapper and run `tdk up store` directly; the BFF reuses the configuration guard before listening, and the storefront displays a connection error instead of an empty grid.
 

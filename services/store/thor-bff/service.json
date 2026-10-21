@@ -12,7 +12,7 @@
     ]
   },
   "healthCheckPath": "/health",
-  "$schema": "https://tdk-landscape.github.io/schema.service.json",
+  "$schema": "https://flisk.sh/schema.service.json",
   "schemaVersion": 1,
   "appName": "thor-bff",
   "appType": "backend",

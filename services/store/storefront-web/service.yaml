@@ -2,7 +2,7 @@ appName: storefront-web
 appType: frontend
 stack: store
 port: 3300
-$schema: https://tdk-landscape.github.io/schema.service.json
+$schema: https://flisk.sh/schema.service.json
 basePath: /storefront-web
 build:
   context: .

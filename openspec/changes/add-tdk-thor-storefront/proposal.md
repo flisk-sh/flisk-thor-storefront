@@ -4,7 +4,7 @@ Agencies with an existing Thor Commerce store need a TDK landscape they can clon
 
 ## What Changes
 
-- Add the `tdk-landscape/tdk-thor-storefront` example: one `store` stack with a Vue 3 + Vite storefront and a Hono-on-Bun Thor BFF, with no database or cluster.
+- Add the `flisk-sh/tdk-thor-storefront` example: one `store` stack with a Vue 3 + Vite storefront and a Hono-on-Bun Thor BFF, with no database or cluster.
 - Put both resources under `services/store/`, wire the storefront to depend on the BFF, and use the shared Docker, nginx, Traefik, and Tilt runtime without publishing container ports on localhost.
 - Require TDK CLI 1.3.75 or newer for Vue framework support; document that older CLIs ignore `"framework": "vue"` and generate React configuration.
 - Document in `.env.example` how to obtain the Thor project slug through `accounts.thorcommerce.io` or `npx --yes create-thor-store@latest --workspace <ThorStores-folder>`, plus the hosted Storefront and Admin URL templates. The landscape consumes an existing Thor store; it does not run Thor locally. Keep `.env` ignored. Add a repo-owned `bun run thor:preflight` that fails by name when `THOR_STOREFRONT_URL` is missing, and provide `bun run thor:preflight --dry-run` to report generated TDK routes and Thor env status without contacting Thor. `bun run dev:store` runs preflight before `tdk up store`; the BFF repeats configuration validation at startup.
@@ -26,7 +26,7 @@ None. This change introduces a new example repo and does not change `tdk-ecommer
 
 ## Impact
 
-- New public repo: `tdk-landscape/tdk-thor-storefront`.
+- New public repo: `flisk-sh/tdk-thor-storefront`.
 - Runtime dependencies: Docker, Tilt, Bun, and TDK CLI 1.3.75 or newer. Storefront codegen uses `@thor-commerce/graphql-codegen-preset`; optional sign-in uses `@thor-commerce/better-auth-thor`.
 - Agencies need an existing Thor store with Storefront GraphQL, Admin GraphQL, B2B context where applicable, and more than one market for the market-switch demonstration.
 - Out of scope: company accounts, quotes, shopping lists, refunds, fulfillment, a second channel storefront, local payment/order records, and a `--with thor` CLI flag.

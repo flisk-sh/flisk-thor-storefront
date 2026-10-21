@@ -14,7 +14,7 @@
       "public/**/*"
     ]
   },
-  "$schema": "https://tdk-landscape.github.io/schema.service.json",
+  "$schema": "https://flisk.sh/schema.service.json",
   "schemaVersion": 1,
   "appName": "storefront-web",
   "appType": "frontend",

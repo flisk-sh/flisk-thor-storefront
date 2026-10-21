@@ -2,7 +2,7 @@ appName: thor-bff
 appType: backend
 stack: store
 port: 4300
-$schema: https://tdk-landscape.github.io/schema.service.json
+$schema: https://flisk.sh/schema.service.json
 build:
   context: .
   dockerfile: Dockerfile

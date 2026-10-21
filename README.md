@@ -32,7 +32,7 @@ tdk --version
 docker info
 ```
 
-For TDK, start your Docker runtime first: `docker info` must connect to the engine. On Apple Silicon, use native ARM64 Docker/Colima/Lima; a Lima error about running under Rosetta means the runtime installation needs correcting. Older TDK releases do not generate Vue configuration correctly; see [the Vue framework gate](https://github.com/tdk-landscape/tdk-cli-core/pull/149).
+For TDK, start your Docker runtime first: `docker info` must connect to the engine. On Apple Silicon, use native ARM64 Docker/Colima/Lima; a Lima error about running under Rosetta means the runtime installation needs correcting. Older TDK releases do not generate Vue configuration correctly; see [the Vue framework gate](https://github.com/flisk-sh/flisk/pull/149).
 
 ### 2. Create or select a hosted Thor store
 
@@ -56,7 +56,7 @@ The onboarding link can use `127.0.0.1` and a temporary port. The storefront use
 ### 3. Clone and configure the landscape
 
 ```sh
-git clone https://github.com/tdk-landscape/tdk-thor-storefront.git
+git clone https://github.com/flisk-sh/tdk-thor-storefront.git
 cd tdk-thor-storefront
 bun install --frozen-lockfile
 cp .env.example .env

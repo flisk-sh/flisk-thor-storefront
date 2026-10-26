@@ -3,13 +3,13 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "tdk-thor-storefront",
+      "name": "flisk-thor-storefront",
       "devDependencies": {
         "@flisk-sh/flisk": "1.4.5",
       },
     },
     "services/store/storefront-web": {
-      "name": "@tdk-thor/storefront-web",
+      "name": "@flisk-thor/storefront-web",
       "version": "0.0.1",
       "dependencies": {
         "vue": "^3.5.0",
@@ -31,7 +31,7 @@
       },
     },
     "services/store/thor-bff": {
-      "name": "@tdk-thor/thor-bff",
+      "name": "@flisk-thor/thor-bff",
       "version": "0.0.1",
       "dependencies": {
         "@thor-commerce/better-auth-thor": "0.2.0",
@@ -351,9 +351,9 @@
 
     "@standard-schema/spec": ["@standard-schema/spec@1.1.0", "", {}, "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="],
 
-    "@tdk-thor/storefront-web": ["@tdk-thor/storefront-web@workspace:services/store/storefront-web"],
+    "@flisk-thor/storefront-web": ["@flisk-thor/storefront-web@workspace:services/store/storefront-web"],
 
-    "@tdk-thor/thor-bff": ["@tdk-thor/thor-bff@workspace:services/store/thor-bff"],
+    "@flisk-thor/thor-bff": ["@flisk-thor/thor-bff@workspace:services/store/thor-bff"],
 
     "@thor-commerce/better-auth-thor": ["@thor-commerce/better-auth-thor@0.2.0", "", { "dependencies": { "zod": "^4.1.13" }, "peerDependencies": { "better-auth": "^1.0.0" } }, "sha512-reIG8NhV/6BcBPvQjVGmjoPsS/F5kI7V91NA4tcqtTsm1thV5VpmD7CmVXiTzvD0+AsQ6TO6fsCj7hCLTxpnzw=="],
 

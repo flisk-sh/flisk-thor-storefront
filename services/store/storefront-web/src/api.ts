@@ -5,7 +5,7 @@ export interface Cart {id:string;currency:string;checkoutUrl:string;total:Money;
 export interface Context {channel:string;market:string;country:string;currency:string;storeId:string;companyLocationId:string|null;markets:{id:string;label:string;channel:string;country:string;currency:string}[];authEnabled:boolean}
 export interface User {id:string;email:string;name:string}
 export type Operation='ProductGrid'|'ProductDetail'|'ProductPrice'|'CartCreate'|'CartAddLine';
-const browserOrigin=typeof window==='undefined'?'http://api.tdk-thor-storefront.localhost:8080':window.location.origin.replace('://app.', '://api.');
+const browserOrigin=typeof window==='undefined'?'http://api.flisk-thor-storefront.localhost:8080':window.location.origin.replace('://app.', '://api.');
 const base=(import.meta.env.VITE_THOR_BFF_URL || `${browserOrigin}/api/thor-bff`).replace(/\/$/,'');
 export async function request<T>(path:string,body?:unknown,signal?:AbortSignal):Promise<T> {
  let response:Response;try {response=await fetch(`${base}${path}`,{method:body===undefined?'GET':'POST',credentials:'include',headers:body===undefined?undefined:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal});}catch(error){if(signal?.aborted)throw error;throw new Error('The store connection is unavailable. Please try again shortly.');}

@@ -46,8 +46,8 @@ export function readConfig(env: NodeJS.ProcessEnv) {
   if (companyLocationId && !buyerChannel) throw new ConfigError('THOR_COMPANY_PRICE_CHANNEL_ID_REQUIRED', 'The public Thor schema has no company-location argument. Configure its buyer price-channel mapping before enabling THOR_COMPANY_LOCATION_ID.');
   const storefrontUrl = endpoint(env.THOR_STOREFRONT_URL!.trim(), 'THOR_STOREFRONT_URL');
   const adminUrl = env.THOR_ADMIN_URL?.trim() ? endpoint(env.THOR_ADMIN_URL.trim(), 'THOR_ADMIN_URL') : null;
-  const frontendOrigin = env.THOR_FRONTEND_ORIGIN?.trim() || 'http://app.tdk-thor-storefront.localhost:8080';
-  const bffOrigin = env.THOR_BFF_ORIGIN?.trim() || 'http://api.tdk-thor-storefront.localhost:8080';
+  const frontendOrigin = env.THOR_FRONTEND_ORIGIN?.trim() || 'http://app.flisk-thor-storefront.localhost:8080';
+  const bffOrigin = env.THOR_BFF_ORIGIN?.trim() || 'http://api.flisk-thor-storefront.localhost:8080';
   const authSecret = env.THOR_AUTH_SECRET?.trim() || null;
   if (authSecret && authSecret.length < 32) throw new ConfigError('THOR_AUTH_SECRET_INVALID', 'THOR_AUTH_SECRET must contain at least 32 characters.');
   return { storefrontUrl, adminUrl, token: env.THOR_ACCESS_TOKEN?.trim() || '', adminKey: env.THOR_ADMIN_API_KEY?.trim() || '', storeId:env.THOR_STORE_ID!.trim(), defaultMarket, markets, companyLocationId, buyerChannel, frontendOrigin, bffOrigin, authSecret };

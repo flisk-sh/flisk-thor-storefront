@@ -7,7 +7,7 @@ export function preflight(args = process.argv.slice(2), env = loadRepositoryEnv(
     try {
       const result = spawn(['flisk','up', 'store', '--dry-run'], {cwd:process.cwd(), env, stdout:'inherit', stderr:'inherit'});
       return result.exitCode ?? 1;
-    } catch { console.error('TDK_NOT_AVAILABLE: Install TDK CLI 1.3.75 or newer.'); return 1; }
+    } catch { console.error('FLISK_NOT_AVAILABLE: Install Flisk CLI 1.3.75 or newer.'); return 1; }
   }
   try { readConfig(env); console.log('Thor configuration ready.'); return 0; }
   catch (error) { console.error(error instanceof ConfigError ? `${error.code}: ${error.message}` : 'THOR_CONFIG_INVALID: Check the project .env.'); return 1; }

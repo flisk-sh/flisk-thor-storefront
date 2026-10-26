@@ -5,7 +5,7 @@
     "": {
       "name": "tdk-thor-storefront",
       "devDependencies": {
-        "@flisk-sh/flisk": "1.3.190",
+        "@flisk-sh/flisk": "1.4.5",
       },
     },
     "services/store/storefront-web": {
@@ -165,7 +165,7 @@
 
     "@fastify/busboy": ["@fastify/busboy@3.2.3", "", {}, "sha512-fmo/IKgkenPzz3qTKG+sIUXdF/Kv83AkvvOXJHPTHJeKJbat8SsL1ihUaFaDotqoEl4UZ1Lf8Eb/3vK6eaWX2A=="],
 
-    "@flisk-sh/flisk": ["@flisk-sh/flisk@1.3.190", "", { "dependencies": { "commander": "^15.0.0", "handlebars": "^4.7.8" }, "bin": { "tdk": "cli/bin/flisk.js", "flisk": "cli/bin/flisk.js", "tdk-cli": "cli/bin/flisk.js" } }, "sha512-z/SD1fV6a07S9z7jmDjXtiI6BcI2dIHTv4/2CQf8mXgtVq0mzRn7zogC6TTv32EFIwNepp8LbJ7mtBbUGBwIOA=="],
+    "@flisk-sh/flisk": ["@flisk-sh/flisk@1.4.5", "", { "dependencies": { "commander": "^15.0.0", "handlebars": "^4.7.8" }, "bin": { "flisk": "cli/bin/flisk.js" } }, "sha512-cDtI1zScW7+i5+jV78akGVfqrK7siB5mgwBrU919PQfHU0ubrjYQNZcK1YKXSD0Tk6Ci2MD76gG/CvhkGSIiYA=="],
 
     "@graphql-codegen/add": ["@graphql-codegen/add@5.0.3", "", { "dependencies": { "@graphql-codegen/plugin-helpers": "^5.0.3", "tslib": "~2.6.0" }, "peerDependencies": { "graphql": "^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0" } }, "sha512-SxXPmramkth8XtBlAHu4H4jYcYXM/o3p01+psU+0NADQowA8jtYkK6MW5rV6T+CxkEaNZItfSmZRPgIuypcqnA=="],
 

@@ -9,7 +9,7 @@ export class ConfigError extends Error {
 }
 export function loadRepositoryEnv(start = process.cwd(), overrides: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv {
   let root = resolve(start);
-  while (!existsSync(join(root, '.tdk/project.json')) && dirname(root) !== root) root = dirname(root);
+  while (!existsSync(join(root, '.flisk/project.json')) && dirname(root) !== root) root = dirname(root);
   const file = join(root, '.env');
   return { ...(existsSync(file) ? parse(readFileSync(file)) : {}), ...overrides };
 }

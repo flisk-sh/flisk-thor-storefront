@@ -12,7 +12,7 @@ The repo MUST define a single `store` stack with exactly two resources, `thor-bf
 - **THEN** the output lists `thor-bff` and `storefront-web` under the `store` stack and no database service
 
 ### Requirement: Resource placement
-Both resources MUST live under `services/store/` so `discovery.paths` in `.tdk/project.json` discovers them. `storefront-web` MUST depend on `thor-bff`.
+Both resources MUST live under `services/store/` so `discovery.paths` in `.flisk/project.json` discovers them. `storefront-web` MUST depend on `thor-bff`.
 
 #### Scenario: Discovery
 - **WHEN** TDK loads the project

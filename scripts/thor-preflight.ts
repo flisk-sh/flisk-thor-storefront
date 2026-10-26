@@ -5,7 +5,7 @@ export function preflight(args = process.argv.slice(2), env = loadRepositoryEnv(
   if (args.includes('--dry-run')) {
     for (const name of thorEnvNames) console.log(`${name}: ${env[name]?.trim() ? 'set' : 'missing'}`);
     try {
-      const result = spawn(['tdk', 'up', 'store', '--dry-run'], {cwd:process.cwd(), env, stdout:'inherit', stderr:'inherit'});
+      const result = spawn(['flisk','up', 'store', '--dry-run'], {cwd:process.cwd(), env, stdout:'inherit', stderr:'inherit'});
       return result.exitCode ?? 1;
     } catch { console.error('TDK_NOT_AVAILABLE: Install TDK CLI 1.3.75 or newer.'); return 1; }
   }

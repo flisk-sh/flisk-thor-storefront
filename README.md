@@ -16,6 +16,8 @@ Both options use the same Thor store and root `.env`. Choose how to run the loca
 | Bun on your computer | `bun run dev:local` | `http://127.0.0.1:3300/storefront-web/` | Bun and Git |
 | Flisk with Traefik | `flisk up store` | `http://app.flisk-thor-storefront.localhost:8080/storefront-web/` | Bun, Git, Docker, Tilt, Flisk CLI 1.3.75+ |
 
+
+The Flisk proxy ports come from `FLISK_HTTP_PORT` (default `8080`) and `FLISK_HTTPS_PORT` (default `8443`) in the root `.env`. If port 8080 is taken, change `FLISK_HTTP_PORT`; the Flisk URLs in this README then use that port instead of `8080`, and `THOR_FRONTEND_ORIGIN`/`THOR_BFF_ORIGIN` must be updated to match.
 Creating a Thor store also needs Node.js LTS **22.18+**, npm/npx, and pnpm. Every executable must be available on `PATH` in the shell that starts onboarding or development.
 
 ```sh

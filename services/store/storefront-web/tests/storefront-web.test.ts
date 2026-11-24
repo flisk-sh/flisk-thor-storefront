@@ -13,4 +13,19 @@ describe('BFF operation transport',()=>{
  it('uses a named envelope and includes session credentials',async()=>{const fetchMock=vi.fn().mockResolvedValue(new Response(JSON.stringify({data:{product:null}})));vi.stubGlobal('fetch',fetchMock);await operation('ProductDetail',{id:'p1'},'eu');const [url,options]=fetchMock.mock.calls[0];expect(url).toContain('/api/thor-bff/storefront/graphql');expect(options.credentials).toBe('include');expect(JSON.parse(options.body)).toEqual({operation:'ProductDetail',variables:{id:'p1'},marketId:'eu'});});
  it('fails on GraphQL errors even when HTTP succeeds',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response(JSON.stringify({data:{product:null},errors:[{message:'Market unavailable'}]}))));await expect(operation('ProductDetail',{id:'p1'})).rejects.toThrow('Market unavailable');});
  it('provides a connection message for non-JSON responses',async()=>{vi.stubGlobal('fetch',vi.fn().mockResolvedValue(new Response('<html>Gateway unavailable</html>',{status:502})));await expect(operation('ProductGrid')).rejects.toThrow('store service is running');});
+ it('preserves the abort reason when the response body is already being read', async () => {
+  const abort = new AbortController();
+  const reason = new DOMException('Superseded search', 'AbortError');
+  const body = new ReadableStream<Uint8Array>({
+   start(stream) {
+    abort.signal.addEventListener('abort', () => stream.error(abort.signal.reason), { once: true });
+   },
+   pull() {
+    abort.abort(reason);
+   },
+  }, { highWaterMark: 0 });
+  vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response(body)));
+
+  await expect(operation('ProductGrid', {}, undefined, abort.signal)).rejects.toBe(reason);
+ });
 });

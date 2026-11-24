@@ -9,7 +9,7 @@ const browserOrigin=typeof window==='undefined'?'http://api.flisk-thor-storefron
 const base=(import.meta.env.VITE_THOR_BFF_URL || `${browserOrigin}/api/thor-bff`).replace(/\/$/,'');
 export async function request<T>(path:string,body?:unknown,signal?:AbortSignal):Promise<T> {
  let response:Response;try {response=await fetch(`${base}${path}`,{method:body===undefined?'GET':'POST',credentials:'include',headers:body===undefined?undefined:{'Content-Type':'application/json'},body:body===undefined?undefined:JSON.stringify(body),signal});}catch(error){if(signal?.aborted)throw error;throw new Error('The store connection is unavailable. Please try again shortly.');}
- let payload:any;try{payload=await response.json();}catch{throw new Error('The store did not return a usable response. Check that the store service is running.');}
+ let payload:any;try{payload=await response.json();}catch(error){if(signal?.aborted)throw error;throw new Error('The store did not return a usable response. Check that the store service is running.');}
  if(!response.ok || payload.error)throw new Error(payload.error?.message || 'The store could not complete this request.');
  if(payload.errors?.length)throw new Error(payload.errors.map((item:{message?:string})=>item.message || 'Request failed').join(' '));return payload as T;
 }
